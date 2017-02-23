@@ -1,5 +1,7 @@
 # RipperTree
 
+[![Build Status](https://travis-ci.org/siman-man/ripper_tree.svg?branch=master)](https://travis-ci.org/siman-man/ripper_tree)
+
 RipperTree is like `tree` command for Ripper#sexp.
 
 ## Installation
