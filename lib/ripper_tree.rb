@@ -47,7 +47,7 @@ class RipperTree
 
     @queue << output_id(id)
 
-    params = parent[1..-1].zip(%i(req_param opt_param rest_param key_param keyreq_param keyrest_param block_param))
+    params = parent[1..-1].zip(%i(pars opts rest pars2 kws kwrest blk))
 
     until params.empty?
       param, arg_type = params.shift
@@ -57,7 +57,7 @@ class RipperTree
       if param.instance_of?(Array)
         @queue << output_id(arg_type)
 
-        if arg_type == :keyrest_param
+        if arg_type == :kwrest
           s = space + get_space(end_line: params.empty? && param.empty?)
           @queue << "#{s}#{L_LINE} "
           @queue << output_value_node(param)
@@ -77,7 +77,7 @@ class RipperTree
           @queue << get_line(end_line: param.empty?, space: s)
 
           case arg_type
-            when :opt_param
+            when :opts
               ident = e.first
               val = e.last
               @queue << "arg#{arg_count}\n"
@@ -103,7 +103,7 @@ class RipperTree
         end
       else
         if param =~ /\d+/
-          @queue << ":keyrest\n"
+          @queue << ":kwrest\n"
         else
           @queue << "#{param.inspect}\n"
         end
