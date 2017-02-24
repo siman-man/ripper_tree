@@ -37,7 +37,7 @@ end
          ├──── :@ident [func] 1:4
          ├──── :paren
          │       └──── :params
-         │               ├──── :req_param
+         │               ├──── :pars
          │               │       └──── :@ident [req] 1:9
          │               ├──── nil
          │               ├──── nil
@@ -66,7 +66,7 @@ end
          ├──── :paren
          │       └──── :params
          │               ├──── nil
-         │               ├──── :opt_param
+         │               ├──── :opts
          │               │       └──── arg1
          │               │               ├──── :@ident [opt] 1:9
          │               │               └──── :@int [3] 1:13
@@ -97,7 +97,7 @@ end
          │       └──── :params
          │               ├──── nil
          │               ├──── nil
-         │               ├──── :rest_param
+         │               ├──── :rest
          │               │       └──── :@ident [rest] 1:10
          │               ├──── nil
          │               ├──── nil
@@ -156,7 +156,7 @@ end
          │               ├──── nil
          │               ├──── nil
          │               ├──── nil
-         │               ├──── :keyrest_param
+         │               ├──── :kwrest
          │               │       └──── :@ident [keyrest] 1:11
          │               └──── nil
          └──── :bodystmt
@@ -185,7 +185,7 @@ end
          │               ├──── nil
          │               ├──── nil
          │               ├──── nil
-         │               └──── :block_param
+         │               └──── :blk
          │                       └──── :@ident [block] 1:10
          └──── :bodystmt
                  ├──── :void_stmt
