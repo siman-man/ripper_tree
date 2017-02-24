@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["siman-man"]
   spec.email         = ["k128585@ie.u-ryukyu.ac.jp"]
 
-  spec.summary       = %q{tree command like viewer}
-  spec.description   = %q{tree command like viewer}
+  spec.summary       = %q{RipperTree is like tree command for Ripper#sexp.}
+  spec.description   = %q{RipperTree is like tree command for Ripper#sexp.}
   spec.homepage      = "https://github.com/siman-man/ripper_tree"
   spec.license       = "MIT"
   spec.required_ruby_version = '>= 2.1.0'
