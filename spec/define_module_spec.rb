@@ -8,7 +8,7 @@ end
 :program
  └──── :module
          ├──── :const_ref
-         │       └──── :@const [Plugin] 1:7
+         │       └──── :@const ["Plugin"] 1:7
          └──── :bodystmt
                  ├──── :void_stmt
                  ├──── nil

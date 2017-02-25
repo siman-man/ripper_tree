@@ -8,11 +8,11 @@ RSpec.describe RipperTree do
 :program
  └──── :binary
          ├──── :binary
-         │       ├──── :@int [1] 1:0
+         │       ├──── :@int ["1"] 1:0
          │       ├──── :+
-         │       └──── :@int [1] 1:4
+         │       └──── :@int ["1"] 1:4
          ├──── :+
-         └──── :@int [300] 1:8
+         └──── :@int ["300"] 1:8
         EXPECT
 
         expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)
@@ -25,11 +25,11 @@ RSpec.describe RipperTree do
 :program
  └──── :binary
          ├──── :binary
-         │       ├──── :@int [3] 1:0
+         │       ├──── :@int ["3"] 1:0
          │       ├──── :-
-         │       └──── :@int [2] 1:4
+         │       └──── :@int ["2"] 1:4
          ├──── :-
-         └──── :@int [1] 1:8
+         └──── :@int ["1"] 1:8
         EXPECT
 
         expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)

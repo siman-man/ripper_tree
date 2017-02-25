@@ -8,7 +8,7 @@ end
 :program
  └──── :class
          ├──── :const_ref
-         │       └──── :@const [Parent] 1:6
+         │       └──── :@const ["Parent"] 1:6
          ├──── nil
          └──── :bodystmt
                  ├──── :void_stmt
@@ -28,9 +28,9 @@ end
 :program
  └──── :class
          ├──── :const_ref
-         │       └──── :@const [Child] 1:6
+         │       └──── :@const ["Child"] 1:6
          ├──── :var_ref
-         │       └──── :@const [Parent] 1:14
+         │       └──── :@const ["Parent"] 1:14
          └──── :bodystmt
                  ├──── :void_stmt
                  ├──── nil
@@ -52,24 +52,24 @@ end
 :program
  └──── :class
          ├──── :const_ref
-         │       └──── :@const [Child] 1:6
+         │       └──── :@const ["Child"] 1:6
          ├──── nil
          └──── :bodystmt
                  ├──── :void_stmt
                  ├──── :assign
                  │       ├──── :var_field
-                 │       │       └──── :@const [N] 2:2
-                 │       └──── :@int [3] 2:6
+                 │       │       └──── :@const ["N"] 2:2
+                 │       └──── :@int ["3"] 2:6
                  ├──── :assign
                  │       ├──── :var_field
-                 │       │       └──── :@ivar [@value] 3:2
+                 │       │       └──── :@ivar ["@value"] 3:2
                  │       └──── :string_literal
                  │               └──── :string_content
                  │                       └──── :@tstring_content ["class"] 3:12
                  ├──── :assign
                  │       ├──── :var_field
-                 │       │       └──── :@cvar [@@num] 4:2
-                 │       └──── :@int [123] 4:10
+                 │       │       └──── :@cvar ["@@num"] 4:2
+                 │       └──── :@int ["123"] 4:10
                  ├──── nil
                  ├──── nil
                  └──── nil
@@ -93,15 +93,15 @@ end
 :program
  └──── :class
          ├──── :const_ref
-         │       └──── :@const [Child] 1:6
+         │       └──── :@const ["Child"] 1:6
          ├──── nil
          └──── :bodystmt
                  ├──── :void_stmt
                  ├──── :defs
                  │       ├──── :var_ref
-                 │       │       └──── :@kw [self] 2:6
-                 │       ├──── :@period [.] 2:10
-                 │       ├──── :@ident [hello] 2:11
+                 │       │       └──── :@kw ["self"] 2:6
+                 │       ├──── :@period ["."] 2:10
+                 │       ├──── :@ident ["hello"] 2:11
                  │       ├──── :params
                  │       │       ├──── nil
                  │       │       ├──── nil

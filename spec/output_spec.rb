@@ -7,7 +7,7 @@ puts "hello world"
         CODE
 :program
  └──── :command
-         ├──── :@ident [puts] 1:0
+         ├──── :@ident ["puts"] 1:0
          └──── :args_add_block
                  ├──── :string_literal
                  │       └──── :string_content
@@ -24,7 +24,7 @@ print "hello world\n"
         CODE
 :program
  └──── :command
-         ├──── :@ident [print] 1:0
+         ├──── :@ident ["print"] 1:0
          └──── :args_add_block
                  ├──── :string_literal
                  │       └──── :string_content

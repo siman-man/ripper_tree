@@ -8,8 +8,8 @@ n = 1
 :program
  └──── :assign
          ├──── :var_field
-         │       └──── :@ident [n] 1:0
-         └──── :@int [1] 1:4
+         │       └──── :@ident ["n"] 1:0
+         └──── :@int ["1"] 1:4
         EXPECT
 
         expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)
@@ -22,8 +22,8 @@ pi = 3.14
 :program
  └──── :assign
          ├──── :var_field
-         │       └──── :@ident [pi] 1:0
-         └──── :@float [3.14] 1:5
+         │       └──── :@ident ["pi"] 1:0
+         └──── :@float ["3.14"] 1:5
         EXPECT
 
         expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)
@@ -36,11 +36,11 @@ n = 1/2r
 :program
  └──── :assign
          ├──── :var_field
-         │       └──── :@ident [n] 1:0
+         │       └──── :@ident ["n"] 1:0
          └──── :binary
-                 ├──── :@int [1] 1:4
+                 ├──── :@int ["1"] 1:4
                  ├──── :/
-                 └──── :@rational [2r] 1:6
+                 └──── :@rational ["2r"] 1:6
         EXPECT
 
         expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)
@@ -53,11 +53,11 @@ n = 1+2i
 :program
  └──── :assign
          ├──── :var_field
-         │       └──── :@ident [n] 1:0
+         │       └──── :@ident ["n"] 1:0
          └──── :binary
-                 ├──── :@int [1] 1:4
+                 ├──── :@int ["1"] 1:4
                  ├──── :+
-                 └──── :@imaginary [2i] 1:6
+                 └──── :@imaginary ["2i"] 1:6
         EXPECT
 
         expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)
@@ -71,12 +71,12 @@ m = 2
 :program
  ├──── :assign
  │       ├──── :var_field
- │       │       └──── :@ident [n] 1:0
- │       └──── :@int [1] 1:4
+ │       │       └──── :@ident ["n"] 1:0
+ │       └──── :@int ["1"] 1:4
  └──── :assign
          ├──── :var_field
-         │       └──── :@ident [m] 2:0
-         └──── :@int [2] 2:4
+         │       └──── :@ident ["m"] 2:0
+         └──── :@int ["2"] 2:4
         EXPECT
 
         expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)
@@ -89,11 +89,11 @@ array = [1,2,3]
 :program
  └──── :assign
          ├──── :var_field
-         │       └──── :@ident [array] 1:0
+         │       └──── :@ident ["array"] 1:0
          └──── :array
-                 ├──── :@int [1] 1:9
-                 ├──── :@int [2] 1:11
-                 └──── :@int [3] 1:13
+                 ├──── :@int ["1"] 1:9
+                 ├──── :@int ["2"] 1:11
+                 └──── :@int ["3"] 1:13
         EXPECT
 
         expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)
@@ -106,21 +106,21 @@ array = [1,2.0,1/3r,2i,'hello',:world]
 :program
  └──── :assign
          ├──── :var_field
-         │       └──── :@ident [array] 1:0
+         │       └──── :@ident ["array"] 1:0
          └──── :array
-                 ├──── :@int [1] 1:9
-                 ├──── :@float [2.0] 1:11
+                 ├──── :@int ["1"] 1:9
+                 ├──── :@float ["2.0"] 1:11
                  ├──── :binary
-                 │       ├──── :@int [1] 1:15
+                 │       ├──── :@int ["1"] 1:15
                  │       ├──── :/
-                 │       └──── :@rational [3r] 1:17
-                 ├──── :@imaginary [2i] 1:20
+                 │       └──── :@rational ["3r"] 1:17
+                 ├──── :@imaginary ["2i"] 1:20
                  ├──── :string_literal
                  │       └──── :string_content
                  │               └──── :@tstring_content ["hello"] 1:24
                  └──── :symbol_literal
                          └──── :symbol
-                                 └──── :@ident [world] 1:32
+                                 └──── :@ident ["world"] 1:32
         EXPECT
 
         expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)
@@ -133,8 +133,8 @@ N = 3
 :program
  └──── :assign
          ├──── :var_field
-         │       └──── :@const [N] 1:0
-         └──── :@int [3] 1:4
+         │       └──── :@const ["N"] 1:0
+         └──── :@int ["3"] 1:4
         EXPECT
 
         expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)
@@ -147,10 +147,10 @@ $a = :global
 :program
  └──── :assign
          ├──── :var_field
-         │       └──── :@gvar [$a] 1:0
+         │       └──── :@gvar ["$a"] 1:0
          └──── :symbol_literal
                  └──── :symbol
-                         └──── :@ident [global] 1:6
+                         └──── :@ident ["global"] 1:6
         EXPECT
 
         expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)
@@ -163,8 +163,8 @@ c = ?a
 :program
  └──── :assign
          ├──── :var_field
-         │       └──── :@ident [c] 1:0
-         └──── :@CHAR [?a] 1:4
+         │       └──── :@ident ["c"] 1:0
+         └──── :@CHAR ["?a"] 1:4
         EXPECT
 
         expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)
@@ -177,7 +177,7 @@ hash = {}
 :program
  └──── :assign
          ├──── :var_field
-         │       └──── :@ident [hash] 1:0
+         │       └──── :@ident ["hash"] 1:0
          └──── :hash
         EXPECT
 
@@ -191,7 +191,7 @@ array = []
 :program
  └──── :assign
          ├──── :var_field
-         │       └──── :@ident [array] 1:0
+         │       └──── :@ident ["array"] 1:0
          └──── :array
         EXPECT
 

@@ -7,7 +7,7 @@ end
       CODE
 :program
  └──── :def
-         ├──── :@ident [void] 1:4
+         ├──── :@ident ["void"] 1:4
          ├──── :params
          │       ├──── nil
          │       ├──── nil
@@ -34,11 +34,11 @@ end
         CODE
 :program
  └──── :def
-         ├──── :@ident [func] 1:4
+         ├──── :@ident ["func"] 1:4
          ├──── :paren
          │       └──── :params
          │               ├──── :pars
-         │               │       └──── :@ident [req] 1:9
+         │               │       └──── :@ident ["req"] 1:9
          │               ├──── nil
          │               ├──── nil
          │               ├──── nil
@@ -62,14 +62,14 @@ end
         CODE
 :program
  └──── :def
-         ├──── :@ident [func] 1:4
+         ├──── :@ident ["func"] 1:4
          ├──── :paren
          │       └──── :params
          │               ├──── nil
          │               ├──── :opts
          │               │       └──── arg1
-         │               │               ├──── :@ident [opt] 1:9
-         │               │               └──── :@int [3] 1:13
+         │               │               ├──── :@ident ["opt"] 1:9
+         │               │               └──── :@int ["3"] 1:13
          │               ├──── nil
          │               ├──── nil
          │               ├──── nil
@@ -92,13 +92,13 @@ end
         CODE
 :program
  └──── :def
-         ├──── :@ident [func] 1:4
+         ├──── :@ident ["func"] 1:4
          ├──── :paren
          │       └──── :params
          │               ├──── nil
          │               ├──── nil
          │               ├──── :rest
-         │               │       └──── :@ident [rest] 1:10
+         │               │       └──── :@ident ["rest"] 1:10
          │               ├──── nil
          │               ├──── nil
          │               ├──── nil
@@ -120,7 +120,7 @@ end
         CODE
 :program
  └──── :def
-         ├──── :@ident [func] 1:4
+         ├──── :@ident ["func"] 1:4
          ├──── :paren
          │       └──── :params
          │               ├──── nil
@@ -128,7 +128,7 @@ end
          │               ├──── nil
          │               ├──── nil
          │               ├──── :keyreq_param
-         │               │       └──── :@label [key:] 1:9
+         │               │       └──── :@label ["key:"] 1:9
          │               ├──── nil
          │               └──── nil
          └──── :bodystmt
@@ -148,7 +148,7 @@ end
         CODE
 :program
  └──── :def
-         ├──── :@ident [func] 1:4
+         ├──── :@ident ["func"] 1:4
          ├──── :paren
          │       └──── :params
          │               ├──── nil
@@ -157,7 +157,7 @@ end
          │               ├──── nil
          │               ├──── nil
          │               ├──── :kwrest
-         │               │       └──── :@ident [keyrest] 1:11
+         │               │       └──── :@ident ["keyrest"] 1:11
          │               └──── nil
          └──── :bodystmt
                  ├──── :void_stmt
@@ -176,7 +176,7 @@ end
         CODE
 :program
  └──── :def
-         ├──── :@ident [func] 1:4
+         ├──── :@ident ["func"] 1:4
          ├──── :paren
          │       └──── :params
          │               ├──── nil
@@ -186,7 +186,7 @@ end
          │               ├──── nil
          │               ├──── nil
          │               └──── :blk
-         │                       └──── :@ident [block] 1:10
+         │                       └──── :@ident ["block"] 1:10
          └──── :bodystmt
                  ├──── :void_stmt
                  ├──── nil

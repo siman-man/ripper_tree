@@ -34,12 +34,8 @@ class RipperTree
     "#{id.inspect}\n".colorize(:magenta)
   end
 
-  def output_string_node(node)
-    "#{node[0].inspect.colorize(:blue)} [#{node[1].inspect.colorize(:red)}] #{node[2].join(':')}\n"
-  end
-
   def output_value_node(node)
-    "#{node[0].inspect.colorize(:blue)} [#{node[1]}] #{node[2].join(':')}\n"
+    "#{node[0].inspect.colorize(:blue)} [#{node[1].inspect.colorize(:red)}] #{node[2].join(':')}\n"
   end
 
   def parse_method_arguments(parent, space: ' ')
