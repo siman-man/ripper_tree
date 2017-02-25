@@ -179,6 +179,7 @@ hash = {}
          ├──── :var_field
          │       └──── :@ident ["hash"] 1:0
          └──── :hash
+                 └──── nil
         EXPECT
 
         expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)
