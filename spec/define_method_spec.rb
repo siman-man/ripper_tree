@@ -196,6 +196,24 @@ end
 
         expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)
       end
+
+      it 'call method with empty block' do
+        code, expect =<<-CODE, <<-EXPECT
+x {}
+        CODE
+:program
+ └──── :method_add_block
+         ├──── :method_add_arg
+         │       ├──── :fcall
+         │       │       └──── :@ident ["x"] 1:0
+         │       └──── []
+         └──── :brace_block
+                 ├──── nil
+                 └──── :void_stmt
+        EXPECT
+
+        expect(RipperTree.create(code).to_s.uncolorize).to eq(expect)
+      end
     end
   end
 end

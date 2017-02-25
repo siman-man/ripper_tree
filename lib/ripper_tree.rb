@@ -110,7 +110,7 @@ class RipperTree
   def parse(parent, space: ' ')
     event_id, *nodes = parent
 
-    if parent.first.instance_of?(Array)
+    if event_id.instance_of?(Array)
       parse(parent.first, space: space)
       return
     end
@@ -141,34 +141,26 @@ class RipperTree
         return
       else
         @queue << output_event_id(event_id)
-    end
 
-    event_count = nodes.count { |n| n.instance_of?(Array) }
+        until nodes.empty?
+          node = nodes.shift
 
-    if event_count.zero?
-      unless nodes.all?(&:nil?)
-        @queue << "#{space}#{parent[1..-1].map(&:inspect).join(', ')}"
-      end
-    else
-      until nodes.empty?
-        node = nodes.shift
-
-        if node.instance_of?(Array)
-          if node.all? { |e| e.instance_of?(Array) }
-            until node.empty?
-              event = node.shift
-              @queue << get_line(end_line: nodes.empty? && node.empty?, space: space)
-              parse(event, space: space + get_space(end_line: nodes.empty? && node.empty?))
+          if node.instance_of?(Array) && !node.empty?
+            if node.all? { |e| e.instance_of?(Array) }
+              until node.empty?
+                event = node.shift
+                @queue << get_line(end_line: nodes.empty? && node.empty?, space: space)
+                parse(event, space: space + get_space(end_line: nodes.empty? && node.empty?))
+              end
+            else
+              @queue << get_line(end_line: nodes.empty?, space: space)
+              parse(node, space: space + get_space(end_line: nodes.empty?))
             end
           else
             @queue << get_line(end_line: nodes.empty?, space: space)
-            parse(node, space: space + get_space(end_line: nodes.empty?))
+            @queue << "#{node.inspect}\n"
           end
-        else
-          @queue << get_line(end_line: nodes.empty?, space: space)
-          @queue << "#{node.inspect}\n"
         end
-      end
     end
   end
 end
