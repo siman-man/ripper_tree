@@ -30,7 +30,7 @@ class RipperTree
     end_line ? ' ' * RipperTree::OPTIONS[:space_size] : I_LINE + ' ' * (RipperTree::OPTIONS[:space_size]-1)
   end
 
-  def output_id(id)
+  def output_event_id(id)
     "#{id.inspect}\n".colorize(:magenta)
   end
 
@@ -45,7 +45,7 @@ class RipperTree
   def parse_method_arguments(parent, space: ' ')
     id = parent.first
 
-    @queue << output_id(id)
+    @queue << output_event_id(id)
 
     params = parent[1..-1].zip(%i(pars opts rest pars2 kws kwrest blk))
 
@@ -55,7 +55,7 @@ class RipperTree
       @queue << get_line(end_line: params.empty?, space: space)
 
       if param.instance_of?(Array)
-        @queue << output_id(arg_type)
+        @queue << output_event_id(arg_type)
 
         if arg_type == :kwrest
           s = space + get_space(end_line: params.empty? && param.empty?)
@@ -124,7 +124,7 @@ class RipperTree
         @queue << output_value_node(parent)
         return
       when /array/
-        @queue << output_id(id)
+        @queue << output_event_id(id)
         children = parent[1].nil? ? [] : parent[1]
 
         until children.empty?
@@ -141,10 +141,10 @@ class RipperTree
         parse_method_arguments(parent, space: space)
         return
       when /void_stmt/
-        @queue << output_id(id)
+        @queue << output_event_id(id)
         return
       else
-        @queue << output_id(id)
+        @queue << output_event_id(id)
     end
 
     child_count = parent[1..-1].count { |e| e.instance_of?(Array) }
