@@ -31,9 +31,9 @@ result
 ```ruby
 :program
  └──── :binary
-         ├──── :@int [1] 1:0
+         ├──── :@int ["1"] 1:0
          ├──── :+
-         └──── :@int [1] 1:4
+         └──── :@int ["1"] 1:4
 ```
 
 if use in ruby code.
@@ -64,7 +64,7 @@ result
 
 :program
  └──── :command
-         ├──── :@ident [puts] 1:0
+         ├──── :@ident ["puts"] 1:0
          └──── :args_add_block
                  ├──── :string_literal
                  │       └──── :string_content
@@ -83,12 +83,12 @@ result
 ```ruby
 :program
  └──── :binary
-         ├──── :@int [1] 1:0
+         ├──── :@int ["1"] 1:0
          ├──── :+
          └──── :binary
-                 ├──── :@int [2] 1:2
+                 ├──── :@int ["2"] 1:2
                  ├──── :*
-                 └──── :@int [3] 1:4
+                 └──── :@int ["3"] 1:4
 ```
 
 ## Contributing
