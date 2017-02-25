@@ -8,9 +8,9 @@ class RipperTree
   L_LINE = '└────'
   SCANNER_EVENT = /^(@CHAR|@const|@cvar|@float|@gvar|@ident|@imaginary|@int|@ivar|@kw|@label|@op|@period|@rational|@regexp_end|@tstring_content)$/
 
-  def self.create(src)
+  def self.create(code)
     new.tap do |rtree|
-      rtree.parse(Ripper.sexp(src))
+      rtree.parse(Ripper.sexp(code))
     end
   end
 
