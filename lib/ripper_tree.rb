@@ -6,7 +6,7 @@ class RipperTree
   T_LINE = '├────'
   I_LINE = '│'
   L_LINE = '└────'
-  VALUE_TOKEN = /@CHAR|@ident|@kw|@regexp_end|@period|@op|@int|@float|@rational|@label|@ivar|@imaginary|@const|@cvar|@gvar/.freeze
+  SCANNER_EVENT = /^(@CHAR|@const|@cvar|@float|@gvar|@ident|@imaginary|@int|@ivar|@kw|@label|@op|@period|@rational|@regexp_end|@tstring_content)$/
 
   def self.create(src)
     new.tap do |rtree|
@@ -120,10 +120,7 @@ class RipperTree
     id = parent.first
 
     case id
-      when /@tstring_content/
-        @queue << output_string_node(parent)
-        return
-      when VALUE_TOKEN
+      when SCANNER_EVENT
         @queue << output_value_node(parent)
         return
       when /array/
