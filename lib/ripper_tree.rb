@@ -112,14 +112,13 @@ class RipperTree
     event_id, *nodes = parent
 
     if event_id.instance_of?(Array)
-      parse(parent.first, space: space)
+      parse(*[event_id + nodes], space: space)
       return
     end
 
     case event_id
       when SCANNER_EVENT
         @queue << output_value_node(parent)
-        return
       when /array/
         @queue << output_event_id(event_id)
         nodes = parent[1].nil? ? [] : parent[1]
@@ -132,14 +131,10 @@ class RipperTree
           @queue << get_line(end_line: nodes.empty?, space: space)
           parse(node, space: space + get_space(end_line: nodes.empty?))
         end
-
-        return
       when /params/
         parse_method_arguments(parent, space: space)
-        return
       when /void_stmt/
         @queue << output_event_id(event_id)
-        return
       else
         @queue << output_event_id(event_id)
 
