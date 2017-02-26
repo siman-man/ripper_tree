@@ -1,3 +1,4 @@
+require 'ripper_tree/version'
 require 'ripper'
 require 'colorize'
 

@@ -9,8 +9,8 @@ OptionParser.new do |opt|
   opt.banner = 'Usage: rtree [options] programfile'
   opt.on('-e `command`', 'one line of script.') { |code| options[:code] = code }
   opt.on('-s `space size`', 'set space size [default size is 8].') { |size| options[:space_size] = size.to_i }
-  opt.on('-v', 'display the version.') { options[:version] = true }
-  opt.on('--no-color', 'disable color option') { options[:color] = false }
+  opt.on('-v', '--version', 'display the version.') { options[:version] = true }
+  opt.on('-c', '--[no-]color', 'color option') { options[:color] = false }
 
   opt.parse!(ARGV)
 end
